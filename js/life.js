@@ -1,7 +1,5 @@
 function Body(arr) {
-	this.initialize = function(arr) {
-		this.structure = arr;
-	}
+	this.structure = arr;
 
 	this.tick =function() {
 		this.old_structure = this.structure;
@@ -20,14 +18,19 @@ function Body(arr) {
 		}
 	}
 
-	this.live = function(x_index, y_index) {
-		if (0 == x_index || x_index == this.old_structure[y_index].length) return false;
-		if (1 == this.old_structure[y_index][x_index - 1] 
-			  && 1 == this.old_structure[y_index][x_index +  1]) {
+	this.live = function(x, y) {
+		return this._have_two_alive_neighbours_and_self_alive(x, y)
+		// || this._have_three_alive_neighbours(x, y)
+			  
+	}
+
+	this._have_two_alive_neighbours_and_self_alive = function(x, y) {
+		if (0 == x || x == this.old_structure[y].length) return false;
+		if (1 == this.old_structure[y][x - 1] 
+			  && 1 == this.old_structure[y][x +  1]
+			  && 1 == this.old_structure[y][x]) {
 			return true;
 		}
 		return false;
 	}
-
-	this.initialize(arr);
 }
