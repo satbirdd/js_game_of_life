@@ -19,17 +19,18 @@ document.body.onload = function() {
 
 function run_the_game() {
 	init_body(glider_gun);
-	setInterval('sync_spans()', 100)
+
+	setInterval('sync_spans()', 100);
 }
 
 function sync_spans() {
-	for(var y = 0; y < body.structure.length; y ++) {
-		for(var x = 0; x < body.structure[y].length; x ++){
-			if(body.structure[y][x] == 0) {
-				body_span[y][x].setAttribute('class', '');
-			} else {
-				body_span[y][x].setAttribute('class', 'alive');
-			}
+	for (var index = 0; index < body.reverse.length; index ++) {
+		var y = body.reverse[index][0];
+		var x = body.reverse[index][1];
+		if(body.structure[y][x] == 0 ){
+			body_span[y][x].setAttribute('class', '');
+		} else {
+			body_span[y][x].setAttribute('class', 'alive');
 		}
 	}
 	body.tick();
@@ -45,10 +46,32 @@ var glider_gun = [[1, 25],
 				[8, 12], [8, 16],
 				[9, 13], [9, 14]]
 
+var lightweight_spaceship = [[1, 3], [1, 4],
+							[2, 1], [2, 2], [2, 4], [2, 5],
+							[3, 1], [3, 2], [3, 3], [3, 4],
+							[4, 2], [4, 3]]
+
+var glider = [[1, 2],
+			 [2, 3],
+			 [3, 1], [3, 2], [3, 3]]
+
 function init_body(arr) {
 	for(var index = 0; index < arr.length; index ++){
 		var position = arr[index];
 		body_arr[position[0]][position[1]] = 1;
+	}
+	init_draw();
+}
+
+function init_draw() {
+	for(var y = 0; y < body.structure.length; y ++) {
+		for(var x = 0; x < body.structure[y].length; x ++){
+			if(body.structure[y][x] == 0) {
+				body_span[y][x].setAttribute('class', '');
+			} else {
+				body_span[y][x].setAttribute('class', 'alive');
+			}
+		}
 	}
 }
 

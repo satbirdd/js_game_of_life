@@ -1,5 +1,6 @@
 function Body(arr) {
 	this.structure = arr;
+	this.reverse = [];
 
 	this.tick =function() {
 		this.old_structure = this.structure;
@@ -11,8 +12,10 @@ function Body(arr) {
 			for(var x = 0; x < this.old_structure[y].length; x ++) {
 				if (this.live(x, y)) {
 					x_axe.push(1);
+					if (1 != this.old_structure[y][x]) this.reverse.push([y, x]); // FIXME : untested
 				} else {
 					x_axe.push(0);
+					if (0 != this.old_structure[y][x]) this.reverse.push([y, x]); // FIXME : untested
 				}
 			}
 		}
