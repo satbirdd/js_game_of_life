@@ -6,6 +6,7 @@ function Body(arr) {
 		this.old_structure = this.structure;
 		this.length = this.old_structure.length;
 		this.structure = [ ];
+		this.reverse = [];
 		for(var y = 0; y < this.length; y ++) {
 			this.structure[y] = [];
 			var	x_axe = this.structure[y];
