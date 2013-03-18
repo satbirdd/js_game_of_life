@@ -63,9 +63,6 @@ function Body(arr) {
         try {
             result = this.old_structure[y - 1][x - 1];
         }
-        catch(e) {
-            result = 0;
-        }
         finally {
             return result || 0;
         }
@@ -75,9 +72,6 @@ function Body(arr) {
         var result = 0;
         try {
             result = this.old_structure[y - 1][x];
-        }
-        catch(e) {
-            result = 0;
         }
         finally {
             return result || 0;
@@ -89,9 +83,6 @@ function Body(arr) {
         try {
             result = this.old_structure[y - 1][x + 1];
         }
-        catch(e) {
-            result = 0;
-        }
         finally {
             return result || 0;
         }
@@ -101,9 +92,6 @@ function Body(arr) {
         var result = 0;
         try {
             result = this.old_structure[y][x-1];
-        }
-        catch(e) {
-            result = 0;
         }
         finally {
             return result || 0;
@@ -115,9 +103,6 @@ function Body(arr) {
         try {
             result = this.old_structure[y][x + 1];
         }
-        catch(e) {
-            result = 0;
-        }
         finally {
             return result || 0;
         }
@@ -127,9 +112,6 @@ function Body(arr) {
         var result = 0;
         try {
             result = this.old_structure[y + 1][x - 1];
-        }
-        catch(e) {
-            result = 0;
         }
         finally {
             return result || 0;
@@ -141,9 +123,6 @@ function Body(arr) {
         try {
             result = this.old_structure[y + 1][x];
         }
-        catch(e) {
-            result = 0;
-        }
         finally {
             return result || 0;
         }
@@ -153,9 +132,6 @@ function Body(arr) {
         var result = 0;
         try {
             result = this.old_structure[y + 1][x + 1];
-        }
-        catch(e) {
-            result = 0;
         }
         finally {
             return result || 0;
