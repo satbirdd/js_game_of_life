@@ -25,7 +25,6 @@ function Body(arr) {
 	this.live = function(x, y) {
 		return this._have_two_alive_neighbours_and_self_alive(x, y)
 		|| this._have_three_alive_neighbours(x, y);
-			  
 	}
 
 	this._have_two_alive_neighbours_and_self_alive = function(x, y) {
@@ -59,62 +58,94 @@ function Body(arr) {
 
 
 	this.top_left = function(x, y) {
-		if (this.is_at_leftset_line(x, y) || this.is_at_topest_line(x, y)) return 0;
-		return this.old_structure[y - 1][x - 1];
+		// if (this.is_at_leftset_line(x, y) || this.is_at_topest_line(x, y)) return 0;
+		var result = 0;
+		try {
+			result = this.old_structure[y - 1][x - 1];
+		} catch (e) {}
+		return result;
 	}
 
 	this.top = function(x, y) {
-		if (this.is_at_topest_line(x, y)) return 0;
-		return this.old_structure[y - 1][x];
+		// if (this.is_at_topest_line(x, y)) return 0;
+		try {
+			return this.old_structure[y - 1][x];
+		} catch (e) {
+			return 0;
+		}
 	}
 
 	this.top_right = function(x, y) {
-		if (this.is_at_topest_line(x, y) || this.is_at_rightest_line(x, y)) return 0;
-		return this.old_structure[y - 1][x + 1];
+		// if (this.is_at_topest_line(x, y) || this.is_at_rightest_line(x, y)) return 0;
+		try {
+			return this.old_structure[y - 1][x + 1];
+		} catch (e) {
+			return 0;
+		}
 	}
 
 	this.left = function(x, y) {
-		if (this.is_at_leftset_line(x, y)) return 0;
-		return this.old_structure[y][x-1];
+		// if (this.is_at_leftset_line(x, y)) return 0;
+		try {
+			return this.old_structure[y][x-1];
+		} catch (e) {
+			return 0;
+		}
 	}
 
 	this.right = function(x, y) {
-		if (this.is_at_rightest_line(x, y)) return 0;
-		return this.old_structure[y][x + 1];
+		// if (this.is_at_rightest_line(x, y)) return 0;
+		try {
+			return this.old_structure[y][x + 1];
+		} catch (e) {
+			return 0;
+		}
 	}
 
 	this.buttom_left = function(x, y) {
-		if (this.is_at_leftset_line(x, y) || this.is_at_buttom_line(x, y)) return 0;
-		return this.old_structure[y + 1][x - 1]
+		// if (this.is_at_leftset_line(x, y) || this.is_at_buttom_line(x, y)) return 0;
+		try {
+			return this.old_structure[y + 1][x - 1];
+		} catch (e) {
+			return 0;
+		}
 	}
 
 	this.buttom = function(x, y) {
-		if (this.is_at_buttom_line(x, y)) return 0;
-		return this.old_structure[y + 1][x];
+		// if (this.is_at_buttom_line(x, y)) return 0;
+		try {
+			return this.old_structure[y + 1][x];
+		} catch (e) {
+			return 0;
+		}
 	}
 
 	this.buttom_right = function(x, y) {
-		if (this.is_at_buttom_line(x, y) || this.is_at_rightest_line(x, y)) return 0;
-		return this.old_structure[y + 1][x + 1]
+		// if (this.is_at_buttom_line(x, y) || this.is_at_rightest_line(x, y)) return 0;
+		try {
+			return this.old_structure[y + 1][x + 1];
+		} catch (e) {
+			return 0;
+		}
 	}
 
 
 
-	this.is_at_topest_line = function(x, y) {
-		return 0 == y;
-	}
+	// this.is_at_topest_line = function(x, y) {
+	// 	return 0 == y;
+	// }
 
-	this.is_at_leftset_line = function(x, y) {
-		return 0 == x;
-	}
+	// this.is_at_leftset_line = function(x, y) {
+	// 	return 0 == x;
+	// }
 
-	this.is_at_rightest_line = function(x, y) {
-		return x == this.old_structure[y].length - 1;
-	}
+	// this.is_at_rightest_line = function(x, y) {
+	// 	return x == this.old_structure[y].length - 1;
+	// }
 
-	this.is_at_buttom_line = function(x, y) {
-		return y == this.length - 1;
-	}
+	// this.is_at_buttom_line = function(x, y) {
+	// 	return y == this.length - 1;
+	// }
 
 	this.is_self_alive = function(x, y) {
 		return this.old_structure[y][x];
