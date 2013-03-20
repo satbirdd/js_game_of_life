@@ -19,12 +19,8 @@ document.body.onload = function() {
 
 function run_the_game() {
 	init_body(glider_gun);
-	console.time('coll')
-	for(var i = 0; i < 10000; i ++) {
-		sync_spans();
-	}
-	console.timeEnd('coll')
-	// setInterval('sync_spans()', 100);
+
+	setInterval('sync_spans()', 100);
 }
 
 function sync_spans() {
